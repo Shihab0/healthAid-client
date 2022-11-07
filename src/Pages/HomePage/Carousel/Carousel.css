@@ -1,0 +1,35 @@
+.bg {
+  background-size: 100% 100%;
+}
+.bg.bg1 {
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.9),
+      rgba(10, 0, 0, 0.7)
+    ),
+    url("../../../assets/images/slider-img/bg-1.webp");
+}
+.bg.bg2 {
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.9),
+      rgba(10, 0, 0, 0.7)
+    ),
+    url("../../../assets/images/slider-img/bg-2.webp");
+}
+.bg.bg3 {
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.9),
+      rgba(10, 0, 0, 0.7)
+    ),
+    url("../../../assets/images/slider-img/bg-3.webp");
+}
+.bg.bg4 {
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.9),
+      rgba(10, 0, 0, 0.7)
+    ),
+    url("../../../assets/images/slider-img/bg-4.jpg");
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { ImAidKit } from "react-icons/im";
 
 const Header = () => {
   const homeMenu = (
@@ -10,6 +11,16 @@ const Header = () => {
   const servicesMenu = (
     <Link to="/services" className="btn btn-ghost">
       Services
+    </Link>
+  );
+  const doctorMenu = (
+    <Link to="/services" className="btn btn-ghost">
+      Doctor
+    </Link>
+  );
+  const reviewMenu = (
+    <Link to="/services" className="btn btn-ghost">
+      Review
     </Link>
   );
 
@@ -38,26 +49,33 @@ const Header = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             {homeMenu}
+            {doctorMenu}
             {servicesMenu}
+            {reviewMenu}
           </ul>
         </div>
         <Link
           to="/home"
           className="btn btn-ghost font-extrabold font-mono normal-case text-xl"
         >
-          Health Aid
+          <ImAidKit className="mr-2" /> Health Aid
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
           {homeMenu}
+          {doctorMenu}
           {servicesMenu}
+          {reviewMenu}
         </ul>
       </div>
       <div className="navbar-end">
-        <a href="/" className="btn">
-          Get started
-        </a>
+        <Link to="/register" className="btn btn-outline mr-2">
+          Register
+        </Link>
+        <Link to="/login" className="btn btn-outline">
+          Login
+        </Link>
       </div>
     </div>
   );

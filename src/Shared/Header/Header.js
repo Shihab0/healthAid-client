@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { ImAidKit } from "react-icons/im";
+import { FiLogOut } from "react-icons/fi";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 const Header = () => {
+  const { user, logOutUser } = useContext(AuthContext);
+
   const homeMenu = (
     <Link to="/home" className="btn btn-ghost">
       Home
@@ -70,12 +74,24 @@ const Header = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <Link to="/register" className="btn btn-outline mr-2">
-          Register
-        </Link>
-        <Link to="/login" className="btn btn-outline">
-          Login
-        </Link>
+        {user?.email ? (
+          <Link to="/register" className="btn btn-outline mr-2 hidden">
+            Register
+          </Link>
+        ) : (
+          <Link to="/register" className="btn btn-outline mr-2">
+            Register
+          </Link>
+        )}
+        {user?.email ? (
+          <Link onClick={logOutUser} className="btn btn-outline bg-red-300">
+            Logout <FiLogOut className="ml-1" />
+          </Link>
+        ) : (
+          <Link to="/login" className="btn btn-outline">
+            Login
+          </Link>
+        )}
       </div>
     </div>
   );

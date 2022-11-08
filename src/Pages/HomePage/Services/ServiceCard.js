@@ -1,8 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ServiceCard = ({ service }) => {
-  const { service_name, image, description } = service;
+  const { service_name, image, description, _id } = service;
   // console.log(service_name);
+  const handleDetails = (id) => {
+    fetch(`http://localhost:5000/services/${id}`);
+  };
 
   return (
     <div className="">
@@ -18,9 +22,13 @@ const ServiceCard = ({ service }) => {
               : description}
           </p>
           <div className="card-actions justify-end">
-            <button className="btn md:btn-md lg:btn-xl btn-outline font-bold">
-              Need this service
-            </button>
+            <Link
+              to={`/details/${_id}`}
+              onClick={() => handleDetails(_id)}
+              className="btn md:btn-md lg:btn-xl btn-outline font-bold"
+            >
+              Details
+            </Link>
           </div>
         </div>
       </div>

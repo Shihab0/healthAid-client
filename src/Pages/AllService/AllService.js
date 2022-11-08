@@ -48,12 +48,12 @@ const AllService = () => {
             ))}
           </div>
           <div className="text-center m-5">
-            <Link
+            {/* <Link
               to="/allservices"
               className="btn btn-wide btn-outline bg-lime-700 font-bold "
             >
               See All Services
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import Swal from "sweetalert2";
 
 const AddService = () => {
   const handleAddService = (e) => {
@@ -14,7 +15,7 @@ const AddService = () => {
     const service = {
       service_name: serviceName,
       service_type: serviceType,
-      service_img: serviceImg,
+      image: serviceImg,
       service_fee: serviceFee,
       description: description,
     };
@@ -24,7 +25,17 @@ const AddService = () => {
         "content-type": "application/json",
       },
       body: JSON.stringify(service),
-    });
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data.data);
+        Swal.fire({
+          icon: "success",
+          title: "Success",
+          text: data.message,
+        });
+      })
+      .catch((err) => console.log(err));
   };
 
   return (

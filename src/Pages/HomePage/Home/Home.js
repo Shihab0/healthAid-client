@@ -1,5 +1,6 @@
 import React from "react";
 import Carousel from "../Carousel/Carousel";
+import Services from "../Services/Services";
 import Stat from "../Stat/Stat";
 
 const Home = () => {
@@ -7,6 +8,7 @@ const Home = () => {
     <div>
       <Carousel></Carousel>
       <Stat></Stat>
+      <Services></Services>
     </div>
   );
 };

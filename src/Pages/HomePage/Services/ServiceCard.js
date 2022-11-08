@@ -1,20 +1,26 @@
 import React from "react";
 
 const ServiceCard = ({ service }) => {
-  const { service_name, image } = service;
+  const { service_name, image, description } = service;
   console.log(service_name);
 
   return (
     <div className="">
-      <div className="card grid grid-cols-1 mb-7 md:mb-0 md:grid-cols-2 card-side bg-sky-200 shadow-xl">
+      <div className="card grid grid-cols-1 mb-7 md:mb-0 md:grid-cols-2 card-side bg-slate-300 shadow-xl">
         <figure>
           <img className="h-80" src={image} alt={service_name} />
         </figure>
-        <div className="card-body">
-          <h2 className="card-title">{service_name}</h2>
-          <p>Click the button to watch on Jetflix app.</p>
+        <div className="card-body lg:p-5 md:p-3 overflow-hidden">
+          <h2 className="card-title text-3xl font-bold">{service_name}</h2>
+          <p className="text-lg">
+            {description.length > 100
+              ? description.slice(0, 100) + "..."
+              : description}
+          </p>
           <div className="card-actions justify-end">
-            <button className="btn btn-primary">Watch</button>
+            <button className="btn md:btn-md lg:btn-xl btn-outline font-bold">
+              Need this service
+            </button>
           </div>
         </div>
       </div>

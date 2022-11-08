@@ -5,8 +5,8 @@ import { GiMedicines } from "react-icons/gi";
 
 const Stat = () => {
   return (
-    <div className="py-3">
-      <div className="stats text-white py-5 w-full bg-gradient-to-r from-indigo-600 to-sky-500 shadow">
+    <div className="py-12">
+      <div className="stats text-white py-10 w-full bg-gradient-to-r from-indigo-600 to-sky-500 shadow">
         <div className="stat">
           <div className="stat-figure text-primary">
             <BiSupport className="inline-block w-20 h-20 stroke-current" />

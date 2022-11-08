@@ -29,9 +29,10 @@ const ReviewForm = ({ _id }) => {
         console.log(data.data);
         Swal.fire({
           icon: "success",
-          title: "Success",
+          title: "Thanks",
           text: data.message,
         });
+        form.reset();
       })
       .catch((err) => console.log(err));
   };
@@ -49,6 +50,7 @@ const ReviewForm = ({ _id }) => {
               name="name"
               placeholder="Your Name"
               className="input input-bordered"
+              required
             />
           </label>
           <label className="input-group mb-2">
@@ -60,6 +62,7 @@ const ReviewForm = ({ _id }) => {
               type="Email"
               placeholder="Enter Email"
               className="input input-bordered"
+              required
             />
           </label>
           <label className="input-group mb-3">
@@ -70,6 +73,7 @@ const ReviewForm = ({ _id }) => {
               name="comment"
               className="textarea input-bordered w-64"
               placeholder="Type here........"
+              required
             ></textarea>
           </label>
         </div>

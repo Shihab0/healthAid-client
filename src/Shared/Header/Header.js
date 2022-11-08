@@ -13,13 +13,13 @@ const Header = () => {
     </Link>
   );
   const servicesMenu = (
-    <Link to="/services" className="btn btn-ghost">
-      Services
+    <Link to="/addService" className="btn btn-ghost">
+      Add Service
     </Link>
   );
   const doctorMenu = (
-    <Link to="/services" className="btn btn-ghost">
-      Doctor
+    <Link to="/allservices" className="btn btn-ghost">
+      Services
     </Link>
   );
   const reviewMenu = (

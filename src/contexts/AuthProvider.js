@@ -12,7 +12,10 @@ export const AuthContext = createContext();
 const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState({ name: "fahim" });
+  const [user, setUser] = useState({
+    name: "fahim",
+    email: "shihab@gmail.com",
+  });
 
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);

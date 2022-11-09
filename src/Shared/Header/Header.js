@@ -24,7 +24,7 @@ const Header = () => {
   );
   const reviewMenu = (
     <Link to="/services" className="btn btn-ghost">
-      Review
+      My Review
     </Link>
   );
 
@@ -54,8 +54,8 @@ const Header = () => {
           >
             {homeMenu}
             {doctorMenu}
-            {servicesMenu}
-            {reviewMenu}
+            {user?.uid && servicesMenu}
+            {user?.uid && reviewMenu}
           </ul>
         </div>
         <Link
@@ -69,8 +69,8 @@ const Header = () => {
         <ul className="menu menu-horizontal p-0">
           {homeMenu}
           {doctorMenu}
-          {servicesMenu}
-          {reviewMenu}
+          {user?.uid && servicesMenu}
+          {user?.uid && reviewMenu}
         </ul>
       </div>
       <div className="navbar-end">
@@ -90,7 +90,7 @@ const Header = () => {
             </p>
             <Link
               onClick={logOutUser}
-              className="btn btn-md btn-outline bg-red-300"
+              className="btn md:btn-md  btn-outline bg-red-300"
             >
               Logout <FiLogOut className="ml-1" />
             </Link>

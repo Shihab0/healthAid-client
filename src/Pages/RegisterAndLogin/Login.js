@@ -1,9 +1,14 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import { AuthContext } from "../../contexts/AuthProvider";
 
 const Login = () => {
-  const { signIn } = useContext(AuthContext);
+  const { signIn, user } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -17,9 +22,27 @@ const Login = () => {
         const user = result.user;
         console.log(user);
         form.reset();
+        console.log(location.state);
+        // navigate(from, { replace: true });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        setError(err.message);
+        if (error) {
+          Swal.fire({
+            icon: "error",
+            title: error,
+          });
+        } else {
+        }
+      });
   };
+
+  useEffect(() => {
+    if (user && user.uid) {
+      navigate(from, { replace: true });
+    }
+  }, [user, from, navigate]);
 
   return (
     <div className="hero p-10 bg-base-300">
@@ -75,6 +98,9 @@ const Login = () => {
               <input className="btn btn-primary" type="submit" value="Login" />
             </div>
           </form>
+          {/* <button onClick={handleGoogleLogin} className="btn btn-outline bg-warning">
+            Login With Google
+          </button> */}
         </div>
       </div>
     </div>

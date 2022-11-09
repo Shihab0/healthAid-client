@@ -84,9 +84,17 @@ const Header = () => {
           </Link>
         )}
         {user?.email ? (
-          <Link onClick={logOutUser} className="btn btn-outline bg-red-300">
-            Logout <FiLogOut className="ml-1" />
-          </Link>
+          <>
+            <p className="text-xl font-bold mr-3">
+              Welcome, {user?.displayName}
+            </p>
+            <Link
+              onClick={logOutUser}
+              className="btn btn-md btn-outline bg-red-300"
+            >
+              Logout <FiLogOut className="ml-1" />
+            </Link>
+          </>
         ) : (
           <Link to="/login" className="btn btn-outline">
             Login

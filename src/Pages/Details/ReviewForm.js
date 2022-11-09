@@ -1,18 +1,24 @@
-import React, { useEffect } from "react";
+import userEvent from "@testing-library/user-event";
+import React, { useContext, useEffect } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 const ReviewForm = ({ _id }) => {
+  const { user } = useContext(AuthContext);
+
   const handleReview = (e) => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
-    const email = form.email.value;
+    const rating = form.rating.value;
     const comment = form.comment.value;
-    console.log(name, email, comment);
+    console.log(name, rating, comment);
 
     const review = {
-      name,
-      email,
+      name: user?.displayName,
+      photo: user?.photoURL,
+      email: user?.email,
+      rating,
       comment,
       productId: _id,
     };
@@ -42,27 +48,17 @@ const ReviewForm = ({ _id }) => {
       <form onSubmit={handleReview} className="p-5">
         <div className="form-control">
           <label className="input-group mb-2">
-            <span className="w-32 bg-slate-700 font-bold text-white">
-              Your Name:{" "}
+            <span className="w-32 py-3 bg-slate-700 font-bold text-white">
+              Rating Out Of 5:{" "}
             </span>
             <input
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              className="input input-bordered"
-              required
-            />
-          </label>
-          <label className="input-group mb-2">
-            <span className="w-32 bg-slate-700 font-bold text-white">
-              Your Email:{" "}
-            </span>
-            <input
-              name="email"
-              type="Email"
-              placeholder="Enter Email"
-              className="input input-bordered"
-              required
+              max={5}
+              min={2}
+              className="text-center w-60 font-bold"
+              defaultValue="5"
+              name="rating"
+              type="number"
+              placeholder="Enter a number"
             />
           </label>
           <label className="input-group mb-3">

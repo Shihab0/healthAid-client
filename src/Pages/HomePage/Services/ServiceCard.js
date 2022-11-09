@@ -1,3 +1,4 @@
+import { GiPencil, GiTrashCan } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -51,16 +52,18 @@ const ServiceCard = ({ service }) => {
             </Link>
             <Link
               onClick={() => handleDelete(_id)}
+              title="delete"
               className="btn md:btn-md lg:btn-xl btn-outline font-bold"
             >
-              Delete
+              <GiTrashCan className="text-xl"> </GiTrashCan>
             </Link>
             <Link
               to={`/edit/${_id}`}
               onClick={() => _id}
+              title="edit"
               className="btn md:btn-md lg:btn-xl btn-outline font-bold"
             >
-              Edit
+              <GiPencil className="text-xl" />
             </Link>
           </div>
         </div>

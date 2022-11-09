@@ -15,7 +15,7 @@ const Details = () => {
     fetch(`http://localhost:5000/review/${_id}`)
       .then((res) => res.json())
       .then((data) => setReview(data));
-  }, [_id]);
+  }, [_id, review]);
 
   return (
     <div className="md:grid md:grid-cols-2 gap-5">

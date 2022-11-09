@@ -10,7 +10,7 @@ const Services = () => {
     fetch("http://localhost:5000/services")
       .then((res) => res.json())
       .then((Services) => setServices(Services));
-  }, []);
+  }, [services]);
 
   return (
     <div className="border border-lime-700 border-b-8 border-x-8">

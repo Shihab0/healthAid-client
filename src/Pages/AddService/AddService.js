@@ -34,6 +34,7 @@ const AddService = () => {
           title: "Success",
           text: data.message,
         });
+        form.reset();
       })
       .catch((err) => console.log(err));
   };
@@ -54,6 +55,7 @@ const AddService = () => {
                   type="text"
                   placeholder="Service Name"
                   className="input input-bordered"
+                  required
                 />
               </label>
             </div>
@@ -65,6 +67,7 @@ const AddService = () => {
                   type="number"
                   placeholder="Service Fee"
                   className="input input-bordered"
+                  required
                 />
               </label>
             </div>
@@ -78,6 +81,7 @@ const AddService = () => {
                   type="text"
                   placeholder="Service type"
                   className="input input-bordered"
+                  required
                 />
               </label>
             </div>
@@ -89,6 +93,7 @@ const AddService = () => {
                   type="text"
                   placeholder="Image url"
                   className="input input-bordered"
+                  required
                 />
               </label>
             </div>

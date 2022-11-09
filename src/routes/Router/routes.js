@@ -3,6 +3,7 @@ import Main from "../../layout/Main/Main";
 import AddService from "../../Pages/AddService/AddService";
 import AllService from "../../Pages/AllService/AllService";
 import Details from "../../Pages/Details/Details";
+import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Home from "../../Pages/HomePage/Home/Home";
 import Login from "../../Pages/RegisterAndLogin/Login";
 import Register from "../../Pages/RegisterAndLogin/Register";
@@ -43,5 +44,9 @@ export const router = createBrowserRouter([
           fetch(`http://localhost:5000/details/${params.id}`),
       },
     ],
+  },
+  {
+    path: "*",
+    element: <ErrorPage></ErrorPage>,
   },
 ]);

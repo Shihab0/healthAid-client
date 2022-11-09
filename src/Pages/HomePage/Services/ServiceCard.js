@@ -1,11 +1,32 @@
-import React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const ServiceCard = ({ service }) => {
   const { service_name, image, description, _id } = service;
-  // console.log(service_name);
+
   const handleDetails = (id) => {
     fetch(`http://localhost:5000/services/${id}`);
+  };
+
+  const handleDelete = (id) => {
+    const proceed = window.confirm("Are you sure want to delete ?");
+    if (proceed) {
+      fetch(`http://localhost:5000/delete/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data.data);
+          if (data.data.deletedCount) {
+            Swal.fire({
+              icon: "success",
+              title: "Successfully Deleted",
+            });
+          }
+          window.location.reload(true);
+        });
+    }
   };
 
   return (
@@ -28,6 +49,19 @@ const ServiceCard = ({ service }) => {
               className="btn md:btn-md lg:btn-xl btn-outline font-bold"
             >
               Details
+            </Link>
+            <Link
+              onClick={() => handleDelete(_id)}
+              className="btn md:btn-md lg:btn-xl btn-outline font-bold"
+            >
+              Delete
+            </Link>
+            <Link
+              to={`/edit/${_id}`}
+              onClick={() => _id}
+              className="btn md:btn-md lg:btn-xl btn-outline font-bold"
+            >
+              Edit
             </Link>
           </div>
         </div>

@@ -1,10 +1,11 @@
+import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../contexts/AuthProvider";
 
 const Login = () => {
-  const { signIn, user } = useContext(AuthContext);
+  const { signIn, user, providerLogin } = useContext(AuthContext);
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
@@ -36,6 +37,16 @@ const Login = () => {
         } else {
         }
       });
+  };
+  const googleProvider = new GoogleAuthProvider();
+
+  const handleGoogleSignIn = () => {
+    providerLogin(googleProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .then((err) => console.error(err));
   };
 
   useEffect(() => {
@@ -98,9 +109,12 @@ const Login = () => {
               <input className="btn btn-primary" type="submit" value="Login" />
             </div>
           </form>
-          {/* <button onClick={handleGoogleLogin} className="btn btn-outline bg-warning">
+          <button
+            onClick={handleGoogleSignIn}
+            className="btn btn-outline bg-warning"
+          >
             Login With Google
-          </button> */}
+          </button>
         </div>
       </div>
     </div>

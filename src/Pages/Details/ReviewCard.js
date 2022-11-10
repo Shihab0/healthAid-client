@@ -1,5 +1,3 @@
-import React, { useContext } from "react";
-import { AuthContext } from "../../contexts/AuthProvider";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import reviewerImg from "../../assets/images/revewer.webp";
 

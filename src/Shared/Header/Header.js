@@ -23,7 +23,7 @@ const Header = () => {
     </Link>
   );
   const reviewMenu = (
-    <Link to="/services" className="btn btn-ghost">
+    <Link to="/myReview" className="btn btn-ghost">
       My Review
     </Link>
   );
@@ -85,12 +85,12 @@ const Header = () => {
         )}
         {user?.email ? (
           <>
-            <p className="text-xl font-bold mr-3">
+            <p className="text-xl hidden md:inline-block font-bold mr-3">
               Welcome, {user?.displayName}
             </p>
             <Link
               onClick={logOutUser}
-              className="btn md:btn-md  btn-outline bg-red-300"
+              className="btn md:btn-md hidden md:block btn-outline p-3 bg-red-300"
             >
               Logout <FiLogOut className="ml-1" />
             </Link>

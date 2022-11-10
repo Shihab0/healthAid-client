@@ -47,14 +47,6 @@ const AllService = () => {
               <ServiceCard key={service._id} service={service}></ServiceCard>
             ))}
           </div>
-          <div className="text-center m-5">
-            {/* <Link
-              to="/allservices"
-              className="btn btn-wide btn-outline bg-lime-700 font-bold "
-            >
-              See All Services
-            </Link> */}
-          </div>
         </div>
       </div>
     </div>

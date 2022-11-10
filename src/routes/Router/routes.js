@@ -6,6 +6,7 @@ import EditService from "../../Pages/AllService/EditService";
 import Details from "../../Pages/Details/Details";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Home from "../../Pages/HomePage/Home/Home";
+import MyReview from "../../Pages/MyReviewPage/MyReview";
 import Login from "../../Pages/RegisterAndLogin/Login";
 import Register from "../../Pages/RegisterAndLogin/Register";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
@@ -59,8 +60,13 @@ export const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:5000/edit/${params.id}`),
       },
+      {
+        path: "myReview",
+        element: <MyReview></MyReview>,
+      },
     ],
   },
+
   {
     path: "*",
     element: <ErrorPage></ErrorPage>,

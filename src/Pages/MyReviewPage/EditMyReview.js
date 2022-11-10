@@ -13,7 +13,7 @@ const EditMyReview = () => {
     const comment = e.target.comment.value;
     // console.log(comment);
 
-    fetch(`http://localhost:5000/myReview/${_id}`, {
+    fetch(`https://health-aid-server-shihab0.vercel.app/myReview/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

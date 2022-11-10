@@ -1,5 +1,7 @@
 import userEvent from "@testing-library/user-event";
 import React, { useContext, useEffect } from "react";
+import { GiH2O } from "react-icons/gi";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../contexts/AuthProvider";
 
@@ -23,7 +25,7 @@ const ReviewForm = ({ _id }) => {
       productId: _id,
     };
 
-    fetch("http://localhost:5000/addReview", {
+    fetch("https://health-aid-server-shihab0.vercel.app/addReview", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -73,13 +75,23 @@ const ReviewForm = ({ _id }) => {
             ></textarea>
           </label>
         </div>
-        <div className="text-center mt-3">
-          <input
-            className="btn btn-outline btn-wide"
-            type="submit"
-            value="Submit"
-          />
-        </div>
+        {user?.email ? (
+          <div className="text-center mt-3">
+            <input
+              className="btn btn-outline btn-wide"
+              type="submit"
+              value="Add Review"
+            />
+          </div>
+        ) : (
+          <h2 className="text-2xl">
+            Please{" "}
+            <Link className="text-red-600 underline" to="/login">
+              Login
+            </Link>{" "}
+            to add a review
+          </h2>
+        )}
       </form>
     </div>
   );

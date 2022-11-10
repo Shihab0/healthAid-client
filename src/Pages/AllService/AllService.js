@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import { RiServiceFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
+import useTitle from "../../hooks/useTitle";
 import ServiceCard from "../HomePage/Services/ServiceCard";
 
 const AllService = () => {
   const [services, setServices] = useState([]);
+  useTitle("Services");
 
   useEffect(() => {
-    fetch("http://localhost:5000/allservices")
+    fetch("https://health-aid-server-shihab0.vercel.app/allservices")
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);

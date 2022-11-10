@@ -12,7 +12,7 @@ const MyReviewCard = ({ rev }) => {
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure want to delete ?");
     if (proceed) {
-      fetch(`http://localhost:5000/deleteReview/${id}`, {
+      fetch(`https://health-aid-server-shihab0.vercel.app/deleteReview/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

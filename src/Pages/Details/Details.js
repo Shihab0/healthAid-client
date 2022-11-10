@@ -12,7 +12,7 @@ const Details = () => {
   //   console.log(review);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/review/${_id}`)
+    fetch(`https://health-aid-server-shihab0.vercel.app/review/${_id}`)
       .then((res) => res.json())
       .then((data) => setReview(data));
   }, [_id, review]);

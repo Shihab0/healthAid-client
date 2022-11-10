@@ -3,6 +3,7 @@ import Main from "../../layout/Main/Main";
 import AddService from "../../Pages/AddService/AddService";
 import AllService from "../../Pages/AllService/AllService";
 import EditService from "../../Pages/AllService/EditService";
+import Blog from "../../Pages/Blog/Blog";
 import Details from "../../Pages/Details/Details";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Home from "../../Pages/HomePage/Home/Home";
@@ -46,26 +47,32 @@ export const router = createBrowserRouter([
         ),
       },
       {
+        path: "/blog",
+        element: <Blog></Blog>,
+      },
+      {
         path: "/details/:id",
-        element: (
-          <PrivateRoute>
-            <Details></Details>
-          </PrivateRoute>
-        ),
+        element: <Details></Details>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/details/${params.id}`),
+          fetch(
+            `https://health-aid-server-shihab0.vercel.app/details/${params.id}`
+          ),
       },
       {
         path: "/edit/:id",
         element: <EditService></EditService>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/edit/${params.id}`),
+          fetch(
+            `https://health-aid-server-shihab0.vercel.app/edit/${params.id}`
+          ),
       },
       {
         path: "/editReview/:id",
         element: <EditMyReview></EditMyReview>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/editReview/${params.id}`),
+          fetch(
+            `https://health-aid-server-shihab0.vercel.app/editReview/${params.id}`
+          ),
       },
       {
         path: "myReview",

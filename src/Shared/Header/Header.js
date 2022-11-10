@@ -12,6 +12,11 @@ const Header = () => {
       Home
     </Link>
   );
+  const blogMenu = (
+    <Link to="/blog" className="btn btn-ghost">
+      Blog
+    </Link>
+  );
   const servicesMenu = (
     <Link to="/addService" className="btn btn-ghost">
       Add Service
@@ -54,6 +59,7 @@ const Header = () => {
           >
             {homeMenu}
             {doctorMenu}
+            {blogMenu}
             {user?.uid && servicesMenu}
             {user?.uid && reviewMenu}
           </ul>
@@ -69,6 +75,7 @@ const Header = () => {
         <ul className="menu menu-horizontal p-0">
           {homeMenu}
           {doctorMenu}
+          {blogMenu}
           {user?.uid && servicesMenu}
           {user?.uid && reviewMenu}
         </ul>

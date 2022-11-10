@@ -1,7 +1,9 @@
 import React from "react";
 import Swal from "sweetalert2";
+import useTitle from "../../hooks/useTitle";
 
 const AddService = () => {
+  useTitle("Add service");
   const handleAddService = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -19,7 +21,7 @@ const AddService = () => {
       service_fee: serviceFee,
       description: description,
     };
-    fetch("http://localhost:5000/addServices", {
+    fetch("https://health-aid-server-shihab0.vercel.app/addServices", {
       method: "POST",
       headers: {
         "content-type": "application/json",

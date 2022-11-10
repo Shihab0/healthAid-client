@@ -1,14 +1,18 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../contexts/AuthProvider";
+import useTitle from "../../hooks/useTitle";
 import MyReviewCard from "./MyReviewCard";
 
 const MyReview = () => {
   const { user } = useContext(AuthContext);
+  useTitle("My reviews");
 
   const [review, setReview] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/review?email=${user?.email}`)
+    fetch(
+      `https://health-aid-server-shihab0.vercel.app/review?email=${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => setReview(data));
   }, [user?.email, review]);

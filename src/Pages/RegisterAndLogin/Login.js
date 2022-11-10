@@ -3,8 +3,10 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../contexts/AuthProvider";
+import useTitle from "../../hooks/useTitle";
 
 const Login = () => {
+  useTitle("Login");
   const { signIn, user, providerLogin } = useContext(AuthContext);
   const [error, setError] = useState("");
   const navigate = useNavigate();

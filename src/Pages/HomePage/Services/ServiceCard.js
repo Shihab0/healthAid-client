@@ -7,13 +7,13 @@ const ServiceCard = ({ service }) => {
   const { service_name, image, description, _id } = service;
 
   const handleDetails = (id) => {
-    fetch(`http://localhost:5000/services/${id}`);
+    fetch(`https://health-aid-server-shihab0.vercel.app/services/${id}`);
   };
 
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure want to delete ?");
     if (proceed) {
-      fetch(`http://localhost:5000/delete/${id}`, {
+      fetch(`https://health-aid-server-shihab0.vercel.app/delete/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

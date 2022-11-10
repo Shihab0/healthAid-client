@@ -25,7 +25,7 @@ const EditService = () => {
       description: description,
     };
 
-    fetch(`http://localhost:5000/edit/${_id}`, {
+    fetch(`https://health-aid-server-shihab0.vercel.app/edit/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

@@ -1,6 +1,7 @@
 import React from "react";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { RiDeleteBin6Line, RiEdit2Fill } from "react-icons/ri";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 import reviewerImg from "../../assets/images/revewer.webp";
@@ -26,6 +27,8 @@ const MyReviewCard = ({ rev }) => {
         });
     }
   };
+
+  const handleEdit = () => {};
 
   return (
     <div className="bg-slate-300 w-full md:w-9/12 mx-auto my-4 p-5 shadow-2xl border border-slate-900 rounded-md border-x-8 ">
@@ -81,12 +84,14 @@ const MyReviewCard = ({ rev }) => {
             {" "}
             <RiDeleteBin6Line />{" "}
           </button>
-          <button
-            title="edit"
-            className="btn font-bold text-lg btn-ghost btn-outline mr-2"
-          >
-            <RiEdit2Fill />{" "}
-          </button>
+          <Link to={`/editReview/${_id}`}>
+            <button
+              title="edit"
+              className="btn font-bold text-lg btn-ghost btn-outline mr-2"
+            >
+              <RiEdit2Fill />{" "}
+            </button>
+          </Link>
         </div>
       </div>
     </div>
